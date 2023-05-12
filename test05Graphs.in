@@ -1,0 +1,13 @@
+i 1 2 1
+i 2 3 1
+i 2 4 1
+i 4 1 1
+mst 1
+mst 4
+i 1 5 1
+mst 1
+mst 4
+i 2 6 1
+mst 1
+mst 2
+exit
