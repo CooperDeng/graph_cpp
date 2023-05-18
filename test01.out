@@ -1,20 +1,30 @@
 success
+failure
+success
+number of vertices is 2
 2
 success
+
+number of vertices is 1
 success
 success
 success
+success
+success
+number of vertices is 5
 2 3 5 6
 success
 success
 success
 success
+number of vertices is 6
 2 3 5 6
 6
 1
 1
 1
 success
+number of vertices is 5
 2 3 6
 
 7
@@ -27,3 +37,4 @@ illegal argument
 5
 1
 failure
+number of vertices is 5

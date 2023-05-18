@@ -351,14 +351,6 @@ void Graph::delete_vertex(int a) {
 
     //the vertex exists
     else {
-        // STANDS FOR ASSOCIATED BRUH
-        std::vector <int> ass;
-
-        for (int i = 0; i < V[a].size(); i++) {
-            //pushing back associated values
-            //we have ensured that there's no duplication
-            ass.push_back(V[a][i]->next);
-        }
 
         //deleting the vertex itself
         //just to be more explicit, preventing mem leak
@@ -470,7 +462,6 @@ void Graph::mst(int a) {
         //for debugging the heap
 //        MH.print_heap();
         int traverse = a;
-        int while_cout = 1;
         while (!(MH.heap_empty())) {
             Vertex* new_vertex = new Vertex();
             delete new_vertex;
@@ -554,19 +545,12 @@ int main(){
 
     Graph g;
 
-    while(true) {
+    while(user_input != "exit") {
         // looking for commands
-        for (int i = 0; i <231333; i++){
-            //do nothing
-        }
-        std::getline(std::cin, user_input);
-        int found = user_input.find(" ");
-        std::string input_c = user_input.substr(0, found);
-        std::string rest = user_input.substr(found+1);
 
-        
+        std::cin >> user_input;
 
-        if (input_c == "load") {
+        if (user_input == "load") {
             
             std::ifstream input("paperCollabWeighted.txt");
             int num1, num2 = 0;
@@ -580,40 +564,38 @@ int main(){
             std::cout <<"success load\n";
         }
 
-        else if (input_c == "i") {    
+        else if (user_input == "i") {    
+            std::string r_x, r_y, r_z;
             int x = 0;
             int y = 0;
             double z = 0.0;   
-            std::string r_x = rest.substr(0, rest.find(" "));
-            std::string r_y = rest.substr(rest.find(" ")+1);
-            std::string r_z = r_y.substr(r_y.find(" ")+1);
-            r_y = r_y.substr(0, r_y.find(" "));
+            std::cin >> r_x >> r_y >> r_z;
 
-            x = stoi(r_x); 
-            y = stoi(r_y); 
+            x = stoi(r_x);
+            y = stoi(r_y);
             z = stod(r_z);
-
             g.insert(x,y,z,false);
         }
 
-        else if (input_c == "p") {
+        else if (user_input == "p") {
+            std::string rest;
+            std::cin >> rest;
             g.print(std::stoi(rest));
         }
 
-        else if (input_c == "d") {
+        else if (user_input == "d") {
+            std::string rest;
+            std::cin >> rest;
             g.delete_vertex(stoi(rest));
         }
 
-        else if (input_c == "mst") {
-
+        else if (user_input == "mst") {
+            std::string rest;
+            std::cin >> rest;
             g.mst(stoi(rest));
         }
 
-        else if (input_c == "exit") {
-            break;
-        }
-        
-        else if (rest == "size"){
+        else if (user_input == "size"){
             g.size_return();
         }
 
